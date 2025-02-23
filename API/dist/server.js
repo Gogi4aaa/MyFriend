@@ -3,16 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const app = (0, express_1.default)();
-const port = 8000;
-app.get('/', (req, res) => {
-    // Send a response to the client
-    res.send('Hello, TypeScript + Node.js + Express!');
-});
-// Start the server and listen on the specified port
-app.listen(port, () => {
-    // Log a message when the server is successfully running
-    console.log(`Server is running on http://localhost:${port}`);
-});
+const app_1 = __importDefault(require("./app"));
+app_1.default.listen(8000);
 //# sourceMappingURL=server.js.map

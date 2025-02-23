@@ -1,10 +1,7 @@
-// src/types/express.d.ts
-import { User } from './models/User'; // Import your user model or interface
+import { Request } from "express";
 
-declare global {
-  namespace Express {
-    interface Request {
-      user?: User; // Define the user type, make sure to replace `User` with your actual type or interface
-    }
+declare module "express-serve-static-core" {
+  interface Request {
+    user?: { id: string }; // Modify this according to your actual user object
   }
 }

@@ -2,9 +2,12 @@ import prisma from "../prisma/prisma";
 import { NextFunction, Request, Response } from "express";
 import { Unauthorized } from "../errors/Unauthorized";
 import { UnprocessableContent } from "../errors/UnprocessableContent";
-export const updateScore = async (req: Request, res: Response, next: NextFunction) => {
+export const updateScore = async (req: any, res: Response, next: NextFunction) => {
     const { newScore } = req.body;
-    const userId = req.user.id; // Get user ID from token
+    if (!req.user) {
+        throw new Error("User not found in request");
+      }
+    const userId = req.userId; // Get user ID from token
 
     try {
         const updatedPlayer = await prisma.game.update({
