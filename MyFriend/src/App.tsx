@@ -1,11 +1,11 @@
 import './App.css'
-import { Login } from './components/Login/Login'
+import AuthPage from './components/Auth/Auth'
 
 function App() {
 
   return (
     <>
-      <Login />
+      <AuthPage/>
     </>
   )
 }
