@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -9,12 +10,12 @@ const Layout = ({ children }: { children: ReactNode }) => {
             <img src="logo.png" alt="My friend" width="85" height="80" />
           </div>
           <div className="nav-buttons">
-            <button>Начало</button>
-            <button id="profile-button">Вход / Регистрация</button>
-            <button id="games-button" disabled>Игри</button>
-            <button id="profile-info-button" style={{ display: "none" }}>
+            <Link to={"/"}>Начало</Link>
+            <Link to={"/login"} id="profile-button">Вход / Регистрация</Link>
+            <Link to={"/games"} id="games-button">Игри</Link>
+            <Link to={"/profile"} id="profile-info-button" style={{ display: "none" }}>
               Профил
-            </button>
+            </Link>
             <button id="logout-button" style={{ display: "none" }}>
               Изход
             </button>

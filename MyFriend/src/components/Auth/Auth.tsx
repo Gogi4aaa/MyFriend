@@ -3,6 +3,7 @@ import SoundSelector from "../SoundSelector/SoundSelector";
 import Layout from "../Layout/Layout";
 import axios from "axios";
 import { AuthCredentials } from "../../Interfaces/Login/Auth";
+import "../Auth/Auth.css";
 
 const AuthPage = () => {
   const [name, setName] = useState("");
@@ -40,7 +41,9 @@ try {
           <img src="logo.png" alt="My friend" width="85" height="80" />
         </div>
         <h1>Регистрация/ Вход</h1>
+        <div className="login-box">
         <input
+        className="mb-2 form-control"
           type="text"
           placeholder="Name"
           value={name}
@@ -48,18 +51,20 @@ try {
           required
         />
         <input
+          className="mb-2 form-control"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <div className="sound-selection">
+        {/* <div className="sound-selection">
           <SoundSelector soundFiles={soundFiles} />
-        </div>
+        </div> */}
         <button id="register-button" onClick={handleSubmit}>
           Регистрация
         </button>
+        </div>
       </div>
     </Layout>
   );
