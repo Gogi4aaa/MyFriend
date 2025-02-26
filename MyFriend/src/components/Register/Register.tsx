@@ -13,23 +13,24 @@ const Register = () => {
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("test");
     
     if (!name || !password || !email) {
-        console.error("Всички полета са задължителни!");
+        console.log("Всички полета са задължителни!");
         return;
     }
     
     if (password.length < 6) {
-        console.error("Паролата трябва да е поне 6 символа!");
+        console.log("Паролата трябва да е поне 6 символа!");
         return;
     }
     
-    await register({ name, email, password });
+    await register({ username:name, email, password });
 };
 
-const register = async (credentials: { name: string; email: string; password: string }): Promise<void> => {
+const register = async (credentials: { username: string; email: string; password: string }): Promise<void> => {
     try {
-        const response = await axios.post("https://your-backend.com/api/register", credentials, {
+        const response = await axios.post("http://localhost:8000/api/auth/register", credentials, {
             headers: { "Content-Type": "application/json" },
         });
         

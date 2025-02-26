@@ -5,6 +5,7 @@ import { comparePassword, hashPassword } from "../utilities/password-utils";
 import { UnprocessableContent } from "../errors/UnprocessableContent";
 import { generateToken } from "../utilities/jwt-utils";
 import { Conflict } from "../errors/Conflict";
+import { log } from "console";
 export const login = async (req: Request, res: Response, next: NextFunction) => {
     const { username, password } = req.body;
     try{   
@@ -32,9 +33,16 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
       email,
       password,
     } = req.body;
-  
-    const isUserEmailAlreadyExist = await prisma.users.findFirst(email);
-    const isUserUsernameAlreadyExist = await prisma.users.findFirst(username);
+   console.log(username, email, password)
+    const isUserEmailAlreadyExist = await prisma.users.findUnique({where: {
+      email: email
+    }
+  });
+    const isUserUsernameAlreadyExist = await prisma.users.findUnique({
+      where: {
+        username
+      }
+    });
   
     if (isUserEmailAlreadyExist) {
       if (isUserUsernameAlreadyExist) {
@@ -56,6 +64,5 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
         data: userData
       })
     //verification code is sent
-    emailService.sendVerifyUserEmail(userData.email, userData.username, verificationCode);
     return res.cookie("ValidationToken", user.id, {httpOnly: false}).status(201).json({message: "Successful Registered!", isRegistered: true});
   };

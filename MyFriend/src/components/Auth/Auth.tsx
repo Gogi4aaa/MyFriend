@@ -8,16 +8,16 @@ import "../Auth/Auth.css";
 const AuthPage = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-
+  const [error, setError] = useState("");
   const soundFiles = ["/sounds/sound1.mp3", "/sounds/sound2.mp3", "/sounds/sound3.mp3"];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await login({ name, password });
+    await login({ username:name, password });
   };
 const login = async (credentials: AuthCredentials): Promise<void> => {
 try {
-    const response = await axios.post("https://your-backend.com/api/login", credentials, {
+    const response = await axios.post("http://localhost:8000/api/auth/login", credentials, {
     headers: { "Content-Type": "application/json" },
     });
 
@@ -26,6 +26,7 @@ try {
     localStorage.setItem("token", response.data.token);
 } catch (error) {
     console.error("Login failed:", error);
+    setError("Невалидно потребителско име или парола!");
 }
 };
 
@@ -64,6 +65,7 @@ try {
         <button id="register-button" onClick={handleSubmit}>
           Вход
         </button>
+        <span className={error ? "" : "hidden"}></span>
         </div>
       </div>
     </Layout>
