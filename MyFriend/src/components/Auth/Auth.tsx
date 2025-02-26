@@ -40,7 +40,7 @@ try {
         <div className="logo-container">
           <img src="logo.png" alt="My friend" width="85" height="80" />
         </div>
-        <h1>Регистрация/ Вход</h1>
+        <h1>Вход</h1>
         <div className="login-box">
         <input
         className="mb-2 form-control"
@@ -62,7 +62,7 @@ try {
           <SoundSelector soundFiles={soundFiles} />
         </div> */}
         <button id="register-button" onClick={handleSubmit}>
-          Регистрация
+          Вход
         </button>
         </div>
       </div>

@@ -13,9 +13,9 @@ model Users {
   password   String             @db.VarChar(255)
   email      String             @db.VarChar(255) @unique
   validation_code String?        @db.VarChar(255)
-  isValidated Boolean           @default(false)
-  sound  Sound @relation(fields: [soundId], references: [id]) // relation
-  soundId    Int
+  isValidated Boolean?           @default(false)
+  sound  Sound? @relation(fields: [soundId], references: [id]) // relation
+  soundId    Int?
   created    DateTime           @default(now())
   modified   DateTime           @updatedAt
 }
@@ -36,8 +36,8 @@ model Result {
 model Game {
   id String @id @default(uuid())
   title String
-  points Int
-  sound Sound @relation(fields: [soundId], references: [id]) // relation
+  points Int?
+  sound Sound? @relation(fields: [soundId], references: [id]) // relation
   soundId Int
   modified   DateTime           @updatedAt
 }

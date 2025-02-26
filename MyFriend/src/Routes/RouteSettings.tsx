@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import App from "../App.tsx"
 import NotFoundPage from "../Pages/NotFoundPage.tsx";
 import AuthPage from "../components/Auth/Auth.tsx";
+import Register from "../components/Register/Register.tsx";
 
 
 export const RouteSettings = () => {
@@ -14,6 +15,7 @@ export const RouteSettings = () => {
         
         {/* Admin routes */}
         <Route path="/login" element={<AuthPage />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/games" element={<AuthPage />} />
         <Route path="/profile" element={<AuthPage />} />
         {/* Catch-all route for 404 pages */}
