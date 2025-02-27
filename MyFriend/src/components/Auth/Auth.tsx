@@ -32,11 +32,6 @@ try {
 
   return (
     <Layout>
-      <div className="clouds">
-        <div className="cloud cloud1"></div>
-        <div className="cloud cloud2"></div>
-        <div className="cloud cloud3"></div>
-      </div>
       <div className="canvas">
         <div className="logo-container">
           <img src="https://res.cloudinary.com/dzrp3c1cv/image/upload/v1740601496/g2g03wloxkvdiacox5uv.png" alt="My friend" width="85" height="80" />

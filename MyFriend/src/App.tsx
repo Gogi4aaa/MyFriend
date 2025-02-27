@@ -5,11 +5,6 @@ import "./App.css";
 const App: React.FC = () => {
   return (
     <Layout>
-      <div className="clouds">
-        <div className="cloud cloud1"></div>
-        <div className="cloud cloud2"></div>
-        <div className="cloud cloud3"></div>
-      </div>
       <div className="canvas">
         <h1>Добре дошли!</h1>
         <div className="autism-info">
