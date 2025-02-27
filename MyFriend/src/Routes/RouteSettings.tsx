@@ -3,6 +3,7 @@ import App from "../App.tsx"
 import NotFoundPage from "../Pages/NotFoundPage.tsx";
 import AuthPage from "../components/Auth/Auth.tsx";
 import Register from "../components/Register/Register.tsx";
+import { Games } from "../Pages/Games.tsx";
 
 
 export const RouteSettings = () => {
@@ -16,7 +17,7 @@ export const RouteSettings = () => {
         {/* Admin routes */}
         <Route path="/login" element={<AuthPage />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/games" element={<AuthPage />} />
+        <Route path="/games" element={<Games />} />
         <Route path="/profile" element={<AuthPage />} />
         {/* Catch-all route for 404 pages */}
         <Route path="*" element={<NotFoundPage />} />

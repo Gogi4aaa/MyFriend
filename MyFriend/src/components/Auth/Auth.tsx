@@ -39,7 +39,7 @@ try {
       </div>
       <div className="canvas">
         <div className="logo-container">
-          <img src="logo.png" alt="My friend" width="85" height="80" />
+          <img src="https://res.cloudinary.com/dzrp3c1cv/image/upload/v1740601496/g2g03wloxkvdiacox5uv.png" alt="My friend" width="85" height="80" />
         </div>
         <h1>Вход</h1>
         <div className="login-box">

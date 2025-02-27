@@ -1,13 +1,12 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
-
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <header>
         <nav>
           <div className="logo-container">
-            <img src="logo.png" alt="My friend" width="85" height="80" />
+            <img src="https://res.cloudinary.com/dzrp3c1cv/image/upload/v1740601496/g2g03wloxkvdiacox5uv.png" alt="My friend" width="85" height="80" />
           </div>
           <div className="nav-buttons">
             <Link to={"/"}>Начало</Link>
