@@ -1,7 +1,16 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { LoginProtection } from "../../Utils/HelperFunctions";
+import { useNavigate } from "react-router-dom";
 const Layout = ({ children }: { children: ReactNode }) => {
+  const navigate = useNavigate();
+  const logout = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      localStorage.removeItem("token");
+      navigate("/");
+    }
+  }
   return (
     <>
       <header>
@@ -11,15 +20,13 @@ const Layout = ({ children }: { children: ReactNode }) => {
           </div>
           <div className="nav-buttons">
             <Link to={"/"}>Начало</Link>
-            <Link to={"/login"} id="profile-button">Вход</Link>
-            <Link to={"/register"} id="profile-button">Регистрация</Link>
-            {LoginProtection() && <Link to={"/games"} id="games-button">Игри</Link>}
+            {LoginProtection() && <Link to={"/games"} id="games-button">Игри</Link>} 
+            {!LoginProtection() && <Link to={"/login"} id="profile-button">Вход</Link>}
+            {!LoginProtection() && <Link to={"/register"} id="profile-button">Регистрация</Link>}
+            {LoginProtection() && <button id="profile-button" onClick={logout}>Logout</button>}
             <Link to={"/profile"} id="profile-info-button" style={{ display: "none" }}>
               Профил
             </Link>
-            <button id="logout-button" style={{ display: "none" }}>
-              Изход
-            </button>
           </div>
         </nav>
       </header>
@@ -28,8 +35,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <div className="cloud cloud2"></div>
         <div className="cloud cloud3"></div>
       </div>
-      <main>
-        {children}</main>
+      <main style={{minHeight: "100vh", width: "70%", margin: "0 auto"}} className="d-flex justify-content-between align-items-center flex-wrap">
+        {children}
+      </main>
     </>
   );
 };

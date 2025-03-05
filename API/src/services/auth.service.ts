@@ -63,6 +63,5 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
     const user = await prisma.users.create({
         data: userData
       })
-    //verification code is sent
     return res.cookie("ValidationToken", user.id, {httpOnly: false}).status(201).json({message: "Successful Registered!", isRegistered: true});
   };

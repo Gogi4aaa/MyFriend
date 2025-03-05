@@ -4,12 +4,13 @@ import axios from "axios";
 import { AuthCredentials } from "../../Interfaces/Login/Auth";
 import "../Auth/Auth.css";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const apiUrl = import.meta.env.VITE_API_URL;
 const AuthPage = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await login({ username:name, password });
@@ -23,6 +24,7 @@ try {
     console.log("Login successful:", response.data);
     // Store token or handle user session if needed
     localStorage.setItem("token", response.data.token);
+    navigate("/");
 } catch (error) {
     console.error("Login failed:", error);
     toast.error("Невалидно потребителско име или парола!");

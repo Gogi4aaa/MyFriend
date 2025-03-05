@@ -3,12 +3,13 @@ import { toast } from "react-toastify";
 import Layout from "../Layout/Layout";
 import axios from "axios";
 import "../Auth/Auth.css";
+import { useNavigate } from "react-router-dom";
 const apiUrl = import.meta.env.VITE_API_URL;
 const Register = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-
+  const navigate = useNavigate();
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -35,8 +36,7 @@ const register = async (credentials: { username: string; email: string; password
         
         console.log("Registration successful:", response.data);
         toast.success("Успешна регистрация!");
-        // Store token or handle user session if needed
-        localStorage.setItem("token", response.data.token);
+        navigate("/login");
     } catch (error) {
         toast.error("Неуспешна регистрация!");
         console.error("Registration failed:", error);
