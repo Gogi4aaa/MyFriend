@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { toast } from "react-toastify";
 import Layout from "../Layout/Layout";
 import axios from "axios";
 import "../Auth/Auth.css";
@@ -11,15 +11,16 @@ const Register = () => {
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("test");
     
     if (!name || !password || !email) {
         console.log("Всички полета са задължителни!");
+        toast.error("Всички полета са задължителни!");
         return;
     }
     
     if (password.length < 6) {
         console.log("Паролата трябва да е поне 6 символа!");
+        toast.error("Паролата трябва да е поне 6 символа!");
         return;
     }
     
@@ -33,9 +34,11 @@ const register = async (credentials: { username: string; email: string; password
         });
         
         console.log("Registration successful:", response.data);
+        toast.success("Успешна регистрация!");
         // Store token or handle user session if needed
         localStorage.setItem("token", response.data.token);
     } catch (error) {
+        toast.error("Неуспешна регистрация!");
         console.error("Registration failed:", error);
     }
 };

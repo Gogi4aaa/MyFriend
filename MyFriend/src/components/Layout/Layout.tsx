@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { LoginProtection } from "../../Utils/HelperFunctions";
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
@@ -12,7 +13,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
             <Link to={"/"}>Начало</Link>
             <Link to={"/login"} id="profile-button">Вход</Link>
             <Link to={"/register"} id="profile-button">Регистрация</Link>
-            {<Link to={"/games"} id="games-button">Игри</Link>}
+            {LoginProtection() && <Link to={"/games"} id="games-button">Игри</Link>}
             <Link to={"/profile"} id="profile-info-button" style={{ display: "none" }}>
               Профил
             </Link>

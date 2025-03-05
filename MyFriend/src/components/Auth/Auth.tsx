@@ -3,6 +3,7 @@ import Layout from "../Layout/Layout";
 import axios from "axios";
 import { AuthCredentials } from "../../Interfaces/Login/Auth";
 import "../Auth/Auth.css";
+import { toast } from "react-toastify";
 const apiUrl = import.meta.env.VITE_API_URL;
 const AuthPage = () => {
   const [name, setName] = useState("");
@@ -24,6 +25,7 @@ try {
     localStorage.setItem("token", response.data.token);
 } catch (error) {
     console.error("Login failed:", error);
+    toast.error("Невалидно потребителско име или парола!");
     setError("Невалидно потребителско име или парола!");
 }
 };
