@@ -1,1 +1,0 @@
-export const NOT_EMPTY = 'not.empty';
