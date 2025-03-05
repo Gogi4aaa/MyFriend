@@ -1,0 +1,31 @@
+﻿version: '3.8'
+
+services:
+  react-app:
+    build:
+      context: ./MyFriend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - node-app
+
+  node-app:
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+    ports:
+      - "5000:3000"
+    depends_on:
+      - db
+  db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: 'MyFriend'
+      MYSQL_ROOT_PASSWORD: 'random-Password1'
+    ports:
+      - '3377:3306'
+    volumes:
+      - my-db:/var/lib/mysql
+volumes:
+  my-db:
