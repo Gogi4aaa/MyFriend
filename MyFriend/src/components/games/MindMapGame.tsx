@@ -10,7 +10,7 @@ const MindMapGame = () => {
     return (
         <Layout>
             <div style={{ width: "100%", height: "100%" }}>
-                <Unity unityProvider={unityProvider}  style={{height: "700px", width: "100%"}}/>
+                <Unity unityProvider={unityProvider}  style={{height: "600px", width: "100%"}}/>
             </div>
         </Layout>
     );

@@ -35,7 +35,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <div className="cloud cloud2"></div>
         <div className="cloud cloud3"></div>
       </div>
-      <main style={{minHeight: "100vh", width: "100%", margin: "0 auto"}} className="d-flex justify-content-between align-items-center flex-wrap">
+      <main style={{minHeight: "100vh", width: "100%", margin: "0 auto"}} className="d-flex justify-content-evenly align-items-center flex-wrap">
         {children}
       </main>
     </>

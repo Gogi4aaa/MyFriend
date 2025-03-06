@@ -10,7 +10,7 @@ export const AnimalSoundGame = () => {
     return (
         <Layout>
             <div style={{ width: "100%", height: "100%"}} className="d-flex justify-content-center align-items-center">
-                <Unity unityProvider={unityProvider}  style={{height: "500px", width: "100%"}}/>
+                <Unity unityProvider={unityProvider}  style={{height: "500px", width: "80%"}}/>
             </div>
         </Layout>
     );
