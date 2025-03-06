@@ -6,9 +6,9 @@ import Layout from "../components/Layout/Layout";
 export const Games = () => {
     return (
         <Layout>
-            <Game img={img2} link="https://jenijivkova.itch.io/animalsoundgame"/>
-            <Game img={img3} link="https://jenijivkova.itch.io/storygame"/>
-            <Game img={img4} link="https://jenijivkova.itch.io/mindmapg"/>
+            <Game img={img3} link="/storygame"/>
+            <Game img={img2} link="/animalsoundgame"/>
+            <Game img={img4} link="/mindmapgame"/>
         </Layout>
     )
 }

@@ -2,20 +2,16 @@
 
 services:
   react-app:
-    build:
-      context: ./MyFriend
-      dockerfile: Dockerfile
+    image: gogi4a/myfriend
     ports:
-      - "3000:80"
+      - "80:80"
     depends_on:
       - node-app
 
   node-app:
-    build:
-      context: ./API
-      dockerfile: Dockerfile
+    image: gogi4a/myfriendbe
     ports:
-      - "5000:3000"
+      - "8080:3000"
     depends_on:
       - db
   db:
@@ -23,8 +19,6 @@ services:
     environment:
       MYSQL_DATABASE: 'MyFriend'
       MYSQL_ROOT_PASSWORD: 'random-Password1'
-    ports:
-      - '3377:3306'
     volumes:
       - my-db:/var/lib/mysql
 volumes:
