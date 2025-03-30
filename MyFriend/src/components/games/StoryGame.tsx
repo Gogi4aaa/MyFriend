@@ -10,7 +10,7 @@ const StoryGame = () => {
     return (
         <Layout>
         <div style={{ width: "100%", height: "100%" }}>
-            <Unity unityProvider={unityProvider}  style={{height: "500px", width: "80%"}}/>
+            <Unity unityProvider={unityProvider}  style={{height: "500px", width: "60%"}}/>
         </div>
         </Layout>
     );

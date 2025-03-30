@@ -24,6 +24,8 @@ try {
     console.log("Login successful:", response.data);
     // Store token or handle user session if needed
     localStorage.setItem("token", response.data.token);
+    toast.success("Успешно влязохте в профила си!")
+    toast.info("Приятно забавление!");
     navigate("/");
 } catch (error) {
     console.error("Login failed:", error);

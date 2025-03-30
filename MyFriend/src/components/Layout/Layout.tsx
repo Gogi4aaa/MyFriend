@@ -2,12 +2,14 @@ import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { LoginProtection } from "../../Utils/HelperFunctions";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const Layout = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
   const logout = () => {
     const token = localStorage.getItem("token");
     if (token) {
       localStorage.removeItem("token");
+      toast.info("Вие успешно излязохте от профила си!")
       navigate("/");
     }
   }
